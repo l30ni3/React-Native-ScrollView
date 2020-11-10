@@ -49,8 +49,15 @@ export const HorizontalScrollView = (props: any) => {
         pagingEnabled
         decelerationRate="fast"
       >
-        {items.map((item: any, index: number) => {
-          return <Slide key={index} title={item.title} />;
+        {items.map((item, index) => {
+          return (
+            <Slide
+              key={index}
+              title={item.title}
+              timeToComplete={item.timeToComplete}
+              backgroundColor={item.backgroundColor}
+            />
+          );
         })}
       </ScrollView>
     </View>
