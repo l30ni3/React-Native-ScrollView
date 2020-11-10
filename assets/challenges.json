@@ -1,0 +1,30 @@
+[
+    {
+      "exam_id": "RIASEC_IMAGES",
+      "title": "Tätigkeitsvielfalt",
+      "screen": "RIASEC_IMAGES",
+      "timeToComplete": 120000,
+      "backgroundColor": "#FF9A3B"
+    },
+    {
+      "exam_id": "ANALOGICAL REASONING",
+      "title": "Jacke wie Hose",
+      "screen": "ANALOGICAL REASONING",
+      "timeToComplete": 120000,
+      "backgroundColor": "#5786FF"
+    },
+    {
+      "exam_id": "BIG FIVE",
+      "title": "Selbsterkenntnis",
+      "screen": "BIG FIVE",
+      "timeToComplete": 120000,
+      "backgroundColor": "#29CCC7"
+    },
+    {
+      "exam_id": "NBACK",
+      "title": "Déjà-vu",
+      "screen": "NBACK",
+      "timeToComplete": 150000,
+      "backgroundColor:" "#5786FF"
+    }
+  ]
