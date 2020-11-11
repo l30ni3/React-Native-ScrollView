@@ -1,9 +1,9 @@
 import React from "react";
 import { View, ScrollView, Text } from "react-native";
-import { Slide } from "./Slide";
+import { Item } from "./Item";
 import { StyleSheet } from "react-native";
 
-export const HorizontalScrollView = (props: any) => {
+export const HoriontalScollView = (props) => {
   const { items } = props;
   const itemsPerInterval =
     props.itemsPerInterval === undefined ? 1 : props.itemsPerInterval;
@@ -13,9 +13,7 @@ export const HorizontalScrollView = (props: any) => {
   const [width, setWidth] = React.useState(0);
 
   const init = (width) => {
-    // initialise width
     setWidth(width);
-    // initialise total intervals
     const totalItems = items.length;
     setIntervals(Math.ceil(totalItems / itemsPerInterval));
   };
@@ -33,11 +31,12 @@ export const HorizontalScrollView = (props: any) => {
 
   return (
     <View style={styles.container}>
+      <Text style={{ ...styles.scrollViewDescr }}>CHALLENGES</Text>
       <ScrollView
         horizontal={true}
         contentContainerStyle={{
           ...styles.scrollView,
-          width: `${100 * intervals}%`,
+          width: `${70 * intervals}%`,
         }}
         showsHorizontalScrollIndicator={true}
         onContentSizeChange={(w, h) => init(w)}
@@ -46,12 +45,12 @@ export const HorizontalScrollView = (props: any) => {
           setInterval(getInterval(data.nativeEvent.contentOffset.x));
         }}
         scrollEventThrottle={200}
-        pagingEnabled
+        snapToInterval={width / intervals}
         decelerationRate="fast"
       >
         {items.map((item, index) => {
           return (
-            <Slide
+            <Item
               key={index}
               title={item.title}
               timeToComplete={item.timeToComplete}
@@ -64,26 +63,24 @@ export const HorizontalScrollView = (props: any) => {
   );
 };
 
-export default HorizontalScrollView;
+export default HoriontalScollView;
 
 const styles = StyleSheet.create({
   container: {
     width: "100%",
-    backgroundColor: "#fbfbfb",
-    borderColor: "#ebebeb",
-    borderWidth: 1,
-    borderRadius: 8,
-    shadowColor: "#fcfcfc",
-    shadowOpacity: 1,
-    marginTop: 10,
-    shadowOffset: {
-      width: 0,
-      height: 5,
-    },
   },
   scrollView: {
+    marginHorizontal: 24,
     display: "flex",
     flexDirection: "row",
     overflow: "hidden",
+  },
+  scrollViewDescr: {
+    fontWeight: "bold",
+    color: "rgb(24, 32, 51)",
+    fontSize: 15,
+    lineHeight: 20,
+    paddingHorizontal: 24,
+    marginBottom: 18,
   },
 });

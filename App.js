@@ -2,7 +2,7 @@ import * as React from "react";
 import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import HorizontalScrollView from "./components/HorizontalScrollView";
+import HoriontalScollView from "./components/HoriontalScollView";
 
 function HomeScreen({ navigation }) {
   return (
@@ -22,7 +22,7 @@ function HomeScreen({ navigation }) {
         />
       </View>
       <View style={styles.sliderWrapper}>
-        <HorizontalScrollView
+        <HoriontalScollView
           itemsPerInterval={1}
           items={[
             {
