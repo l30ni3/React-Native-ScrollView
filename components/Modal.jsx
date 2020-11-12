@@ -1,16 +1,9 @@
 import React, { useState } from "react";
-import {
-  Alert,
-  Modal,
-  StyleSheet,
-  Text,
-  TouchableHighlight,
-  View,
-} from "react-native";
+import { Alert, Modal, StyleSheet, Text, View, Image } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
+import StatusBarBackground from "./StatusBar";
 
 export const ModalView = (props) => {
-  //   const [modalVisible, setModalVisible] = useState(props.visible);
-
   return (
     <View style={styles.centeredView}>
       <Modal
@@ -23,16 +16,47 @@ export const ModalView = (props) => {
           Alert.alert("Modal has been closed.");
         }}
       >
-        <View style={styles.centeredView}>
+        <View style={{ ...styles.modalView, backgroundColor: props.color }}>
           <View style={styles.modalView}>
-            <Text style={styles.modalText}>Hello World!</Text>
-
-            <TouchableHighlight
-              style={{ ...styles.openButton, backgroundColor: "#2196F3" }}
-              onPress={() => props.toggle()}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </TouchableHighlight>
+            <View style={styles.modalHeaderWrapper}>
+              <StatusBarBackground style={{ backgroundColor: props.color }} />
+              <TouchableOpacity
+                activeOpacity={1}
+                onPress={() => props.toggle()}
+              >
+                <Image
+                  style={styles.menuCloseIcon}
+                  source={require("../assets/close.png")}
+                />
+              </TouchableOpacity>
+            </View>
+            <View style={styles.modalTextWrapper}>
+              <Text style={styles.modalTitle}>{props.title}</Text>
+              <Text style={styles.modalTime}>{props.time} Min</Text>
+              <View style={styles.modalDescription}>
+                <Text style={{ ...styles.modalDescriptionTitle }}>
+                  CHALLENGES
+                </Text>
+                <View style={styles.divider} />
+                <Text style={styles.modalDescriptionText}>
+                  Um herauszufinden, welche Perspektiven zu dir passen könnten,
+                  müssen wir erst einmal klären, welche Tätigkeiten dir
+                  überhaupt gefallen. Dafür schauen wir gemeinsam, welche
+                  Tätigkeiten dich ansprechen und welche nicht.
+                </Text>
+              </View>
+            </View>
+            <View style={styles.modalButtonWrapper}>
+              <TouchableOpacity
+                activeOpacity={1}
+                style={styles.modalButton}
+                onPress={() => props.toggle()}
+              >
+                <Text style={styles.modalbuttonText}>
+                  MIT ÜBUNGSRUNDE BEGINNEN
+                </Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </Modal>
@@ -41,41 +65,69 @@ export const ModalView = (props) => {
 };
 
 const styles = StyleSheet.create({
-  centeredView: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginTop: 22,
-  },
   modalView: {
-    margin: 20,
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  modalHeaderWrapper: {
+    height: 94,
+    marginTop: 24,
+    alignItems: "flex-end",
+  },
+  modalTextWrapper: {
+    flex: 3,
+    paddingVertical: 24,
+  },
+  modalButtonWrapper: {
+    flex: 1,
+    justifyContent: "flex-end",
+    marginBottom: 50,
+  },
+  modalButton: {
+    paddingVertical: 16,
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
-    alignItems: "center",
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 2,
-    },
-    shadowOpacity: 0.25,
-    shadowRadius: 3.84,
-    elevation: 5,
+    borderRadius: 4,
   },
-  openButton: {
-    backgroundColor: "#F194FF",
-    borderRadius: 20,
-    padding: 10,
-    elevation: 2,
+  modalbuttonText: {
+    color: "rgb(68, 97, 212)",
+    fontSize: 14,
+    lineHeight: 20,
+    textAlign: "center",
   },
-  textStyle: {
-    color: "white",
+  modalTitle: {
+    paddingBottom: 8,
+    color: "rgb(255, 255, 255)",
+    fontSize: 24,
+    lineHeight: 30,
+    fontWeight: "600",
+  },
+  modalTime: {
+    paddingBottom: 16,
+    color: "rgb(255, 255, 255)",
+    fontSize: 15,
+    lineHeight: 20,
+  },
+  modalDescription: {},
+  modalDescriptionTitle: {
     fontWeight: "bold",
-    textAlign: "center",
+    color: "rgb(255, 255, 255)",
+    fontSize: 13,
+    lineHeight: 20,
+    marginBottom: 18,
   },
-  modalText: {
-    marginBottom: 15,
-    textAlign: "center",
+  divider: {
+    borderBottomColor: "white",
+    borderBottomWidth: 1,
+    marginBottom: 16,
+  },
+  modalDescriptionText: {
+    color: "rgb(255, 255, 255)",
+    fontSize: 14,
+    lineHeight: 20.625,
+  },
+  menuCloseIcon: {
+    height: 24,
+    width: 24,
   },
 });
 

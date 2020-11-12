@@ -84,9 +84,8 @@ const styles = StyleSheet.create({
   headerWrapper: {
     backgroundColor: "rgb(255, 255, 255)",
     height: 94,
-    paddingTop: 24,
-    paddingRight: 16,
-    paddingLeft: 24,
+    marginTop: 24,
+    padding: 24,
   },
   menuIcon: {
     height: 18,

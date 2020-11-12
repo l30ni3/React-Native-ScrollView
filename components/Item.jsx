@@ -28,7 +28,13 @@ export const Item = (props) => {
         <Text style={{ ...styles.slideTitle }}>{title}</Text>
         <Text style={{ ...styles.slideTime }}>{time} Min </Text>
       </View>
-      <ModalView visible={modalVisible} toggle={toggleModal}></ModalView>
+      <ModalView
+        visible={modalVisible}
+        toggle={toggleModal}
+        color={backgroundColor}
+        title={title}
+        time={time}
+      ></ModalView>
     </TouchableOpacity>
   );
 };
