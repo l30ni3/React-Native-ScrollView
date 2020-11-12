@@ -3,11 +3,13 @@ import { StyleSheet, Text, View, Image, ImageBackground } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HoriontalScollView from "./components/HoriontalScollView";
+import StatusBarBackground from "./components/StatusBar";
 
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.contentWrapper}>
       <View style={styles.headerWrapper}>
+        <StatusBarBackground style={{ backgroundColor: "white" }} />
         <Image style={styles.menuIcon} source={require("./assets/menu.png")} />
       </View>
       <View style={styles.titleWrapper}>
@@ -82,7 +84,7 @@ const styles = StyleSheet.create({
   headerWrapper: {
     backgroundColor: "rgb(255, 255, 255)",
     height: 94,
-    paddingTop: 16,
+    paddingTop: 24,
     paddingRight: 16,
     paddingLeft: 24,
   },
