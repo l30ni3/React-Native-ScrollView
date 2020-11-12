@@ -131,13 +131,12 @@ const slideStyles = StyleSheet.create({
     flex: 1,
     height: 150,
     borderRadius: 8,
-    marginRight: 16,
+    marginHorizontal: 16,
   },
   slide: {
     padding: 15,
     height: 150,
     borderRadius: 8,
-    marginRight: 16,
   },
   slideTitle: {
     flex: 3,
@@ -164,7 +163,6 @@ const scrollViewStyles = StyleSheet.create({
     width: "100%",
   },
   scrollView: {
-    marginHorizontal: 24,
     display: "flex",
     flexDirection: "row",
     overflow: "hidden",
@@ -174,7 +172,7 @@ const scrollViewStyles = StyleSheet.create({
     color: "rgb(24, 32, 51)",
     fontSize: 15,
     lineHeight: 20,
-    paddingHorizontal: 24,
+    paddingHorizontal: 16,
     marginBottom: 18,
   },
 });
