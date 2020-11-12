@@ -7,7 +7,9 @@ import HoriontalScollView from "./components/HoriontalScollView";
 function HomeScreen({ navigation }) {
   return (
     <View style={styles.contentWrapper}>
-      <View style={styles.headerWrapper}></View>
+      <View style={styles.headerWrapper}>
+        <Image style={styles.menuIcon} source={require("./assets/menu.png")} />
+      </View>
       <View style={styles.titleWrapper}>
         <Image style={styles.logo} source={require("./assets/logo.png")} />
         <Text style={styles.title}>Bereit?</Text>
@@ -80,6 +82,13 @@ const styles = StyleSheet.create({
   headerWrapper: {
     backgroundColor: "rgb(255, 255, 255)",
     height: 94,
+    paddingTop: 16,
+    paddingRight: 16,
+    paddingLeft: 24,
+  },
+  menuIcon: {
+    height: 18,
+    width: 20,
   },
   titleWrapper: {
     backgroundColor: "rgb(255, 255, 255)",
