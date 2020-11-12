@@ -1,7 +1,8 @@
 import React from "react";
 import { View, ScrollView, Text } from "react-native";
-import { Item } from "./Item";
+import { Slide } from "./Slide";
 import { StyleSheet } from "react-native";
+import { scrollViewStyles } from "../styles/styles";
 
 export const HoriontalScollView = (props) => {
   const { items } = props;
@@ -30,12 +31,12 @@ export const HoriontalScollView = (props) => {
   };
 
   return (
-    <View style={styles.container}>
-      <Text style={{ ...styles.scrollViewDescr }}>CHALLENGES</Text>
+    <View style={scrollViewStyles.scrollViewContainer}>
+      <Text style={{ ...scrollViewStyles.scrollViewDescr }}>CHALLENGES</Text>
       <ScrollView
         horizontal={true}
         contentContainerStyle={{
-          ...styles.scrollView,
+          ...scrollViewStyles.scrollView,
           width: `${70 * intervals}%`,
         }}
         showsHorizontalScrollIndicator={true}
@@ -50,7 +51,7 @@ export const HoriontalScollView = (props) => {
       >
         {items.map((item, index) => {
           return (
-            <Item
+            <Slide
               key={index}
               title={item.title}
               timeToComplete={item.timeToComplete}
@@ -64,23 +65,3 @@ export const HoriontalScollView = (props) => {
 };
 
 export default HoriontalScollView;
-
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-  },
-  scrollView: {
-    marginHorizontal: 24,
-    display: "flex",
-    flexDirection: "row",
-    overflow: "hidden",
-  },
-  scrollViewDescr: {
-    fontWeight: "bold",
-    color: "rgb(24, 32, 51)",
-    fontSize: 15,
-    lineHeight: 20,
-    paddingHorizontal: 24,
-    marginBottom: 18,
-  },
-});
